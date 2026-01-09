@@ -31,6 +31,7 @@ const signCsr = (res, csrPem, extConfigContent, days) => {
         const cmd = `openssl x509 -req -in ${csrPath} \
           -CA ${path.join(PKI_DIR, 'ca.crt')} \
           -CAkey ${path.join(PKI_DIR, 'ca.key')} \
+          -CAserial ${path.join(PKI_DIR, 'ca.srl')} \
           -CAcreateserial \
           -out ${crtPath} \
           -days ${days} \
